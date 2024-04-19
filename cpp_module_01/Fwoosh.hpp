@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fwoosh.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaquet <pierreolivierpaquet@hotmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 10:49:57 by ppaquet           #+#    #+#             */
-/*   Updated: 2024/04/19 13:28:44 by ppaquet          ###   ########.fr       */
+/*   Created: 2024/04/19 10:36:31 by ppaquet           #+#    #+#             */
+/*   Updated: 2024/04/19 12:53:59 by ppaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"Warlock.hpp"
-#include	"ASpell.hpp"
-#include	"Fwoosh.hpp"
-#include	"Dummy.hpp"
+#ifndef		FWOOSH_HPP_
+# define	FWOOSH_HPP_
 
-int	main( void ) {
+# include	<iostream>
+# include	"ASpell.hpp"
 
-	Warlock richard("Richard", "the Titled");
+class Fwoosh : public ASpell {
 
-	Dummy bob;
-	Fwoosh* fwoosh = new Fwoosh();
-	ASpell *clone = fwoosh->clone();
+	private:
 
-	richard.learnSpell(clone);
+	public:
+		Fwoosh( void );	// Default.
+		~Fwoosh( void );	// Default.
 
-	richard.introduce();
-	richard.launchSpell("Fwoosh", bob);
+		Fwoosh( Fwoosh const &src );	// Copy.
+		Fwoosh &operator=( Fwoosh const &rhs );	// Assignation.
 
-	richard.forgetSpell("Fwoosh");
-	richard.launchSpell("Fwoosh", bob);
+		ASpell *clone( void ) const;
 
-	return ( EXIT_SUCCESS );
-}
+};	/* Fwoosh */
+
+#endif	/*	FWOOSH_HPP_	*/

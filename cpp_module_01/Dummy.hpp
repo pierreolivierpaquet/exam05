@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dummy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaquet <pierreolivierpaquet@hotmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 10:49:57 by ppaquet           #+#    #+#             */
-/*   Updated: 2024/04/19 13:28:44 by ppaquet          ###   ########.fr       */
+/*   Created: 2024/04/19 11:05:27 by ppaquet           #+#    #+#             */
+/*   Updated: 2024/04/19 11:20:40 by ppaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"Warlock.hpp"
-#include	"ASpell.hpp"
-#include	"Fwoosh.hpp"
-#include	"Dummy.hpp"
+#ifndef		DUMMY_HPP_
+# define	DUMMY_HPP_
 
-int	main( void ) {
+# include	<iostream>
+# include	"ATarget.hpp"
 
-	Warlock richard("Richard", "the Titled");
+class	Dummy : public ATarget {
 
-	Dummy bob;
-	Fwoosh* fwoosh = new Fwoosh();
-	ASpell *clone = fwoosh->clone();
+	private:
 
-	richard.learnSpell(clone);
+	public:
+		Dummy( void );	// Default.
+		Dummy( Dummy const &src );	// Copy.
 
-	richard.introduce();
-	richard.launchSpell("Fwoosh", bob);
+		~Dummy( void );	// Default.
 
-	richard.forgetSpell("Fwoosh");
-	richard.launchSpell("Fwoosh", bob);
+		Dummy &operator=( Dummy const &rhs );	// Assignation.
+		ATarget	*clone( void ) const;
 
-	return ( EXIT_SUCCESS );
-}
+
+};	/* Dummy */
+
+#endif	/*	DUMMY_HPP_	*/

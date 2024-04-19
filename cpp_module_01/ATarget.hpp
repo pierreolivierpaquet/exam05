@@ -6,7 +6,7 @@
 /*   By: ppaquet <pierreolivierpaquet@hotmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:56:04 by ppaquet           #+#    #+#             */
-/*   Updated: 2024/04/18 11:28:54 by ppaquet          ###   ########.fr       */
+/*   Updated: 2024/04/18 13:23:36 by ppaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ class	ASpell;
 
 class	ATarget {
 	private:
+		ATarget( void );							// Default constructor.
 		std::string	_type;
 
 	public:
-		ATarget( void );							// Default constructor.
 		virtual ~ATarget( void );					// Default destructor.
 		ATarget( const ATarget &rhs );				// Assignment overload.
 		ATarget &operator=( const ATarget &rhs );	// Reference copy.

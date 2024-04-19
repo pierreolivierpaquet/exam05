@@ -6,7 +6,7 @@
 /*   By: ppaquet <pierreolivierpaquet@hotmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 08:49:22 by ppaquet           #+#    #+#             */
-/*   Updated: 2024/04/18 10:14:54 by ppaquet          ###   ########.fr       */
+/*   Updated: 2024/04/19 12:48:24 by ppaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define	WARLOCK_HPP_
 
 # include	<iostream>
+# include	<utility>
+# include	<map>
+# include	"ASpell.hpp"
 
 # ifndef	EXIT_SUCCESS
 #  define	EXIT_SUCCESS	0
@@ -22,6 +25,10 @@
 # ifndef	EXIT_FAILURE
 #  define	EXIT_FAILURE	1
 # endif	/*	EXIT_FAILURE	*/
+
+///	========================================================== @section CLASS.ES
+
+typedef	std::map< std::string, ASpell * > spellmap;
 
 class	Warlock {
 
@@ -33,7 +40,10 @@ class	Warlock {
 		std::string	_name;
 		std::string	_title;
 
+		spellmap	_spells;								// Spells knowledge.
+
 	public:
+
 		~Warlock( void );
 
 		Warlock( std::string name, std::string title ); // Parameterized
@@ -43,6 +53,10 @@ class	Warlock {
 
 		void	setTitle( const std::string &title );
 		void	introduce( void ) const;
+
+		void	learnSpell( ASpell *spell_to_learn );
+		void	forgetSpell( std::string spell_to_forget );
+		void	launchSpell( std::string spell, ATarget &victim );
 
 };	/*	Warlock	*/
 
